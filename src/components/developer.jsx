@@ -28,26 +28,39 @@ const Developer = ({ animationName = "idle", ...props }) => {
     "/models/animations/victory.fbx",
   );
 
-  idleAnimation[0].name = "idle";
-  clappingAnimation[0].name = "clapping";
-  saluteAnimation[0].name = "salute";
-  victoryAnimation[0].name = "victory";
-
-  const { actions } = useAnimations(
-    [
+  const animations = React.useMemo(() => {
+    idleAnimation[0].name = "idle";
+    clappingAnimation[0].name = "clapping";
+    saluteAnimation[0].name = "salute";
+    victoryAnimation[0].name = "victory";
+    return [
       idleAnimation[0],
       clappingAnimation[0],
       saluteAnimation[0],
       victoryAnimation[0],
-    ],
-    groupRef,
-  );
+    ];
+  }, [idleAnimation, clappingAnimation, saluteAnimation, victoryAnimation]);
+
+  const { actions } = useAnimations(animations, groupRef);
   useEffect(() => {
-    actions[animationName].reset().fadeIn(0.5).play();
+    if (!actions || !actions[animationName]) return;
 
-    return () => actions[animationName].fadeOut(0.5).reset();
-  }, [animationName]);
+    // Stop all other actions
+    Object.keys(actions).forEach((key) => {
+      if (key !== animationName && actions[key].isRunning()) {
+        actions[key].fadeOut(0.2);
+      }
+    });
 
+    // Play the new animation
+    actions[animationName].reset().fadeIn(0.2).play();
+
+    return () => {
+      if (actions[animationName]) {
+        actions[animationName].fadeOut(0.2).reset();
+      }
+    };
+  }, [animationName, actions]);
   return (
     <group ref={groupRef} {...props} dispose={null}>
       <primitive object={nodes.Hips} />

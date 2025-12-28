@@ -7,6 +7,7 @@ import Developer from "../components/developer";
 
 const Experience = () => {
   const [animationName, setAnimationName] = useState("idle");
+  console.log(`animationName: ${animationName}`)
   return (
     <section className="c-space my-20">
       <div className="w-full text-white-600">
@@ -37,17 +38,19 @@ const Experience = () => {
           </div>
 
           <div className="work-content">
-            <div className="sm:py-10 py-5 sm:px-5 px-2.5">
+            <div
+              className="sm:py-10 py-5 sm:px-5 px-2.5"
+              onMouseLeave={() => setAnimationName("idle")}
+            >
               {workExperiences.map(
                 ({ id, name, icon, pos, duration, animation, title }) => (
                   <div
                     key={id}
                     className="work-content_container group"
                     onClick={() => setAnimationName(animation.toLowerCase())}
-                    onPointerOver={() =>
+                    onMouseEnter={() =>
                       setAnimationName(animation.toLowerCase())
                     }
-                    onPointerOut={() => setAnimationName("idle")}
                   >
                     <div className="flex flex-col h-full justify-start items-center py-2 ">
                       <div className="work-content_logo">

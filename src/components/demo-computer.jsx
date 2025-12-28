@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { useEffect, useRef } from "react";
 
 const DemoComputer = (props) => {
-  const { nodes, materials } = useGLTF("models/sci-fi-transformed.glb");
+  const { nodes, materials } = useGLTF("models/computer-transformed.glb");
 
   const groupRef = useRef();
   const texture = useVideoTexture(
@@ -13,7 +13,7 @@ const DemoComputer = (props) => {
 
   useEffect(() => {
     if (texture) {
-      texture.flipY = false;
+      texture.flipY = true;
     }
   }, [texture]);
 
@@ -59,6 +59,6 @@ const DemoComputer = (props) => {
   );
 };
 
-useGLTF.preload("models/sci-fi-transformed.glb");
+useGLTF.preload("models/computer-transformed.glb");
 
 export default DemoComputer;
