@@ -1,13 +1,13 @@
-import { Canvas } from "@react-three/fiber";
-import { workExperiences } from "../constants";
 import { OrbitControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
 import { Suspense, useState } from "react";
 import CanvasLoader from "../components/canvas-loader";
 import Developer from "../components/developer";
+import { workExperiences } from "../constants";
 
 const Experience = () => {
   const [animationName, setAnimationName] = useState("idle");
-  console.log(`animationName: ${animationName}`)
+  console.log(`animationName: ${animationName}`);
   return (
     <section className="c-space my-20">
       <div className="w-full text-white-600">
