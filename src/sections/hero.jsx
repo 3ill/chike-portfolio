@@ -1,16 +1,12 @@
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { PerspectiveCamera } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 // import { Leva, useControls } from "leva";
 import { Suspense } from "react";
 import { useMediaQuery } from "react-responsive";
 import Button from "../components/button";
 import CanvasLoader from "../components/canvas-loader";
-import Cube from "../components/cube";
 import HackerRoom from "../components/hacker-room";
 import HeroCamera from "../components/hero-camera";
-import ReactLogo from "../components/react-logo";
-import Rings from "../components/rings";
-import Target from "../components/target";
 import { calculateSizes } from "../constants";
 
 const Hero = () => {
@@ -42,7 +38,7 @@ const Hero = () => {
         </p>
 
         <p className="hero_tag text-gray_gradient">
-          I Build Systems and Solutions
+          I Build Scalable, Impactful Software Solutions for the Future
         </p>
 
         <div className="flex w-full h-screen justify-center items-center relative lg:pt-8 ">
