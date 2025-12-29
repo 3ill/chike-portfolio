@@ -1,6 +1,6 @@
+import { useState } from "react";
 import Globe from "react-globe.gl";
 import Button from "../components/button";
-import { useState } from "react";
 
 const About = () => {
   const [hasCopied, setHasCopied] = useState(false);
@@ -17,10 +17,10 @@ const About = () => {
       <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
         {/* Grid 1*/}
         <div className="col-span-1 xl:row-span-3">
-          <div className="grid-container">
+          <div className="grid-container relative">
             <img
-              src="/assets/grid1.png"
-              alt="grid-1"
+              src="assets/3ill-Avatar.png"
+              alt="profile"
               className="w-full sm:h-[276px] h-fit object-contain"
             />
 
@@ -46,8 +46,7 @@ const About = () => {
             <div>
               <p className="grid-headtext">Tech Stack</p>
               <p className="grid-subtext">
-                I specialize in NodeJS, Javascript/Typescript, Solidity, React
-                and NextJS ecosystems
+                My expertise spans modern JavaScript and TypeScript, with deep experience in Node.js, NestJS, Express, and the React/Next.js ecosystem. I also build smart contracts with Solidity for EVM-compatible chains and Solana, enabling robust blockchain solutions.
               </p>
             </div>
           </div>
